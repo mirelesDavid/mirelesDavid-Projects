@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ESP IoT Firebase App</title>
+
+    <!-- update the version number as needed -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+
+    <!-- include only the Firebase features as you need -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+
+    <script>
+     // REPLACE WITH YOUR web app's Firebase configuration
+     const firebaseConfig = {
+      apiKey: "AIzaSyDKBSRE3PKgbuaQk6wfvhePt2zxkHrnZNQ",
+      authDomain: "esp32-2fbae.firebaseapp.com",
+      projectId: "esp32-2fbae",
+      storageBucket: "esp32-2fbae.appspot.com",
+      messagingSenderId: "295879477698",
+      appId: "1:295879477698:web:15023e8c8be2ddd1156e5b",
+      measurementId: "G-JPD621QJV0"
+    };
+    
+  
+      // Initialize firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Make auth and database references
+      const auth = firebase.auth();
+      const db = firebase.database();
+
+    </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  
+  <!--TOP BAR-->
+  <div class="topnav">
+    <h1><i class="fas fa-traffic-light"></i> SemafoTEC</h1>
+</div>
+
+  <!--AUTHENTICATION BAR (USER DETAILS/LOGOUT BUTTON)-->
+  <div id="authentication-bar" style="display: none;">
+    <p>
+        <a href="/" id="logout-link" style="color: white;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </p>
+</div>
+
+
+<!--LOGIN FORM-->
+<form id="login-form" style="display: none;">
+  <div class="form-elements-container">
+      <label for="input-email"><b>Email <i class="fas fa-envelope"></i></b></label>
+      <input type="text" placeholder="Enter Username" id="input-email" required>
+
+      <label for="input-password"><b>Password <i class="fas fa-lock"></i></b></label>
+      <input type="password" placeholder="Enter Password" id="input-password" required>
+
+      <button type="submit" id="login-button">Login <i class="fas fa-sign-in-alt"></i></button>
+      <p id="error-message" style="color:red;"></p>
+  </div>
+</form>
+
+
+
+<!--CONTENT (SENSOR READINGS)-->
+<div class="content-sign-in" id="content-sign-in" style="display: none; color: white;">
+  <div class="cards">
+    <!--TEMPERATURE-->
+    <div class="card">
+      <p><i class="fas fa-thermometer-half" style="color:#e72b3b;"></i> TEMPERATURA</p>
+      <p><span class="reading"><span id="temp"></span> 26 &deg;C</span></p>
+    </div>
+    <!--HUMIDITY-->
+    <div class="card">
+      <p><i class="fas fa-tint" style="color:#00add6;"></i> HUMEDAD</p>
+      <p><span class="reading"><span id="hum"></span> 55 &percnt;</span> </p>
+    </div>
+    <!--CO2-->
+    <div class="card">
+      <p><i class="fas fa-fire" style="color:#ff9900;"></i> CO2</p>
+      <p><span class="reading"><span id="co2"></span> 70 ppm</span></p>
+    </div>
+    <!--GASES TÓXICOS-->
+    <div class="card">
+      <p><i class="fas fa-skull-crossbones" style="color:#990000;"></i> GASES TÓXICOS</p>
+      <p><span class="reading"><span id="gases-toxicos"></span> 7 &percnt;</span></p>
+    </div>
+  </div>
+</div>
+<script src="scripts/auth.js"></script>
+<script src="scripts/index.js"></script>
+
+
+
+  </body>
+  <div class="bottomnav">
+    <h1>David Mireles <a href="https://www.linkedin.com/in/mirelesdavid" target="_blank"><i class="fab fa-linkedin"></i></a> | Fernando Renteria <a href="https://www.linkedin.com/in/fernando-renteria-salda%C3%B1a/" target="_blank"><i class="fab fa-linkedin"></i></a> | Rodrigo Morales <a href="https://www.linkedin.com/in/rodrigo-morales-guillaux-70303a204/" target="_blank"><i class="fab fa-linkedin"></i></a></h1>
+</div>
+
+
+
+
+  
+</html>

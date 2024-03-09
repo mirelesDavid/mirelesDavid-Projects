@@ -1,0 +1,111 @@
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: inline-block;
+    text-align: center;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+body {
+    margin: 0;
+}
+
+.topnav {
+    overflow: hidden;
+    color: white;
+    font-size: 1rem;
+    padding: 10px;
+}
+
+label {
+    color: white;
+}
+
+body {
+    margin: 0;
+    background-image: url('lndn.jpeg'); /* Reemplaza 'ruta_de_tu_imagen.jpg' con la ruta correcta de tu imagen */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir toda la pantalla */
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
+}
+.bottomnav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(31, 30, 30);
+    color: rgb(207, 207, 207);
+    font-size: x-small;
+    padding: 10px;
+  }
+
+  #authentication-bar {
+    padding: 10px; /* Ajusta el padding según tus necesidades */
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+#user-details{
+    color: cadetblue;
+}
+
+.content {
+    padding: 20px;
+}
+
+.cards {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex; /* Cambia display a flex */
+    justify-content: center; /* Centra los elementos en el eje principal (horizontalmente) */
+    align-items: center; /* Centra los elementos en el eje secundario (verticalmente) */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en filas si no caben en una sola fila */
+}
+
+.card {
+    background-color: rgb(31, 31, 31);
+    box-shadow: 2px 2px 12px 1px rgba(255, 255, 255, 0.5);
+    padding: 5%;
+    width: 200px; /* Establece el ancho de cada tarjeta según tus necesidades */
+    margin: 1rem; /* Añade un margen entre las tarjetas según tus necesidades */
+}
+
+.reading {
+    font-size: 1.4rem;
+}
+
+button {
+    background-color: rgb(31, 30, 30);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+button:hover {
+    opacity: 0.8;
+}
+
+.form-elements-container{
+    width: 250px;
+}
+#login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
