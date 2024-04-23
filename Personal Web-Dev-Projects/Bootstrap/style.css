@@ -1,0 +1,320 @@
+.nav-link{
+    color: #F3EFE0;
+}
+
+.fs-4{
+    color: #F3EFE0
+}
+
+.background{
+    background-color: #222222;
+}
+
+.agencyName{
+    font-family: serif;
+    color: #F3EFE0;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+#h2 {
+    font-family: serif;
+    font-size: 3.5rem;
+    color: #222222;
+}
+
+#h2-Creelon {
+    font-weight:lighter;
+    letter-spacing: 4px;
+    color: #222222;
+}
+
+#Features .col p {
+    text-align: justify;
+}
+
+#Contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 50vh;
+}
+
+.container-grid {
+    height: 400px;
+    width: 1250px;
+    display: grid;
+    grid-template-columns: 850px 400px;
+    grid-template-rows: 200px 50px 50px 50px 50px;
+    gap: 9px;
+}
+    
+.imgagexd {
+    grid-row: span 6;
+    grid-column: 1/2;
+    display: flex;
+    justify-content: center;
+    overflow: hidden; 
+}
+
+#centerMe {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    width: auto;
+    height: auto;
+}
+
+
+#h222{
+    font-family: serif;
+    font-size: 3.5rem;
+    color: #222222;
+    display: flex;
+    justify-content: center;
+}
+
+.h22 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.line {
+    height: 2px;
+    background-color: #222222; 
+    width: 100%;
+}
+
+.but {
+    grid-column: 2/3;
+    grid-row: 5/6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.but button {
+    background-color: #222222; 
+    color: #F3EFE0; 
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.but button:hover {
+    background-color: #333; 
+}
+
+
+@media (max-width: 1210px){
+
+    .container-grid {
+        height: 800px;
+        width: 800px;
+        display: grid;
+        grid-template-columns: 1000px;
+        grid-template-rows: 500px 70px 50px 50px 50px 100px;
+        gap: 9px;
+
+    }
+    
+    .imgagexd {
+        grid-row: 1/2;
+        grid-column: 1/2;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+    #centerMe {
+        max-width: 100%;
+        max-height: 100%; 
+        object-fit: cover;
+        width: auto;
+        height: auto;
+    }
+
+    .h22 {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    
+    .item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .line {
+        height: 2px;
+        background-color: #222222; 
+        width: 50%;
+    }
+
+    .but {
+        grid-column: 1/2;
+        grid-row: 6/7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #h222{
+        font-family: serif;
+        font-size: 3.5rem;
+        color: #222222;
+        display: flex;
+        justify-content: center;
+    }
+
+    #contact{
+        height: 900px;
+        width: 1000px;
+    }
+}
+
+
+@media (max-width: px){
+
+    .container-grid {
+        height: 800px;
+        width: 800px;
+        display: grid;
+        grid-template-columns: 1000px;
+        grid-template-rows: 500px 70px 50px 50px 50px 100px;
+        gap: 9px;
+
+    }
+    
+    .imgagexd {
+        grid-row: 1/2;
+        grid-column: 1/2;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+    #centerMe {
+        max-width: 100%;
+        max-height: 100%; 
+        object-fit: cover;
+        width: auto;
+        height: auto;
+    }
+
+    .h22 {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    
+    .item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .line {
+        height: 2px;
+        background-color: #222222; 
+        width: 50%;
+    }
+
+    .but {
+        grid-column: 1/2;
+        grid-row: 6/7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #h222{
+        font-family: serif;
+        font-size: 3.5rem;
+        color: #222222;
+        display: flex;
+        justify-content: center;
+    }
+
+    #contact{
+        height: 900px;
+        width: 1000px;
+    }
+}
+
+@media (max-width: 600px){
+    .container-grid {
+        height: 800px;
+        width: 600px;
+        display: grid;
+        grid-template-columns: 500px;
+        grid-template-rows: 500px 70px 50px 50px 50px 100px;
+        gap: 9px;
+
+    }
+    
+    .imgagexd {
+        grid-row: 1/2;
+        grid-column: 1/2;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+    #centerMe {
+        max-width: 100%;
+        max-height: 100%; 
+        object-fit: cover;
+        width: auto;
+        height: auto;
+    }
+
+    .h22 {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    
+    .item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .line {
+        height: 2px;
+        background-color: #222222; 
+        width: 50%;
+    }
+
+    .but {
+        grid-column: 1/2;
+        grid-row: 6/7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #h222{
+        font-family: serif;
+        font-size: 3.5rem;
+        color: #222222;
+        display: flex;
+        justify-content: center;
+    }
+
+    #contact{
+        height: 900px;
+        width: 500px;
+    }
+}
+

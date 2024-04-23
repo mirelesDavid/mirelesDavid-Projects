@@ -1,0 +1,123 @@
+<%- include('./partials/header.ejs') %>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creelon Blog Post</title>
+
+</head>
+
+<body>
+
+    <section id="Hero">
+        <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div id="special" class="col-10 col-sm-8 col-lg-6">
+            <img src="/images/Screenshot 2023-12-21 025314.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="475" height="500" loading="lazy">
+          </div>
+          <div class="col-lg-6">
+            <h2 class="display-5 fw-bold text-body-emphasis lh-1 mb-3" id="h2">Exceptional Photography, Customized by <span id="h2-Creelon">Creelon's</span> Visionaries</h2>
+            <p class="lead">At Creelon Photography, we redefine success by delivering exceptional marketing solutions tailored to your brand. Our relentless commitment to excellence, innovative strategies, and unwavering dedication to client success set us apart in the competitive landscape.</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <form action="/create" method="get">
+                    <button type="sumbit" class="btn btn-dark btn-lg px-4 me-md-2">Create Post</button>
+                </form>
+                <form action="/edit" method="get">
+                    <button type="sumbit" class="btn btn-outline-secondary btn-lg px-4">Edit Post</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="OurWork">
+        <div class="container px-4 py-5" id="hanging-icons">
+            <h2 class="pb-2 border-bottom"><span id="h2-Creelon">Creelon's</span> Work</h2>
+            <div class="album py-5 bg-body">
+                <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="/images/20421287.jpg">
+                        <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            </div>
+                            <small class="text-body-secondary">9 mins</small>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="/images/220801-05_0925_03_QC (1)2.webp">
+                        <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            </div>
+                            <small class="text-body-secondary">9 mins</small>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="/images/360509-4k-wallpaper.jpg">
+                        <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            </div>
+                            <small class="text-body-secondary">9 mins</small>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+               
+    </section>
+
+    <section id="community-posts">
+
+        <div class="container-grid-community">
+
+            <div id="community-title-container">
+                <h2 class="communityTitle">Community Posts</h2>
+            </div>
+        </div>
+
+        <div id="posts-container">
+            <% posts.forEach(post => { %>
+                <div class="post">
+                    <h2 class="post-title"><%= post.title %></h2>
+                    <% if (post.description.split(' ').length > 50) { %>
+                        <p class="lead"><%= post.description.split(' ').slice(0, 50).join(' ') + '...' %></p>
+                    <% } else { %>
+                        <p class="lead"><%= post.description %></p>
+                    <% } %>
+                    <div id="imageCenter">
+                        <img src="<%= post.image %>">
+                    </div>
+                    <p class="lead username"><%= post.username %></p>
+                </div>
+            <% }); %>
+        </div>
+    </section>
+    
+</body>
+
+</html>
+
+<%- include('./partials/footer.ejs') %>

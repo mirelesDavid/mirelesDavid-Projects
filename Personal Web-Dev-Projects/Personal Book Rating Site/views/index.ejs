@@ -1,0 +1,95 @@
+<%- include("./partials/header.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David's Book Rating</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+  <section id="Hero">
+    <div class="container col-xxl-8 px-4 py-5">
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6 main-photo">
+          <div class="hero-image">
+            <img src="/images/davidm.jpg" >
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <h1 class="letter">The ultimate destination for rating books: <span class="name"><a href="https://www.linkedin.com/in/mirelesdavid/" target="_blank" style="text-decoration: none; color: inherit;">David Mireles</a></span> platform to share insights and opinions</h1>
+          <p class="text">Trusted by book enthusiasts worldwide since 2011, facilitating over 1 billion book rating interactions.</p>          
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <form action="/create" method="get">
+            <button type="sumbit" class="button">Create Post</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="separator"></div>
+
+  <section id="Ratings">
+    <div id="container">
+      <div id="ratings-title">
+        <h2>Book Ratings</h2>
+      </div>
+      <div id="posts-container">
+        <% listItems.forEach(item => { %>
+          <div class="post">
+            <div class="post-image">
+              <div class="book-container">
+              <img src="<%= item.image %>" alt="Book Cover" />
+            </div>
+            </div>
+            <div class="post-title"><%= item.title %></div>
+
+            <div class="dropdown-container">
+              <i class="dropdown-toggle fa fa-cog" onclick="toggleDropdown(this)"></i>
+              <div class="dropdown-menu">
+                  <form id="deleteForm<%= item.id %>" action="/delete" method="post">
+                      <input type="hidden" name="deleteItemId" value="<%= item.id %>">
+                  </form>
+                  <form id="editForm<%= item.id %>" action="/edit" method="get">
+                      <input type="hidden" name="editItemId" value="<%= item.id %>">
+                  </form>
+                  <a href="#" onclick="submitDeleteForm(<%= item.id %>)">Delete</a>
+                  <a href="#" onclick="submitEditForm(<%= item.id %>)">Edit</a>
+              </div>
+          </div>
+          
+            <div class="post-meta">
+              <div class="post-username"><%= item.username %></div>
+              <div class="post-rating">Rating: <%= item.rating %></div>
+            </div>
+            <div class="post-description"><%= item.description %></div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+
+    function toggleDropdown(element) {
+      const dropdownMenu = element.nextElementSibling;
+      dropdownMenu.classList.toggle("show");
+    }
+
+    function submitDeleteForm(itemId) {
+      document.getElementById('deleteForm' + itemId).submit();
+    }
+
+    function submitEditForm(itemId) {
+      document.getElementById('editForm' + itemId).submit();
+    }
+
+  </script>
+</body>
+</html>
+
+<%- include('./partials/footer.ejs') %>

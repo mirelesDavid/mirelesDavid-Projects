@@ -1,0 +1,102 @@
+<%- include("./partials/header.ejs") %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blochchain</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <section id="Hero">
+        <div class="hero-container">
+            <h1>La forma más popular del mundo para comprar, vender e intercambiar criptomonedas</h1>
+            <p>Con la confianza de millones de personas desde 2011 y con más de 1 Billón de dólares en transacciones de criptomonedas.</p>
+            <form id="container-grid-form">
+                <input type="email" id="email" placeholder="Your email address"> 
+                <button>  Inscribirse  </button>
+            </form>            
+        </div>
+    </section>
+
+    <section id="card-section">
+        <div id="card-container">
+
+            <div id="BTC" class="card">
+                <div class="img-button-container">
+                    <div class="images">
+                        <img src="/images/bitcoin-btc-logo.png">
+                    </div>
+                    <div class="buttons">
+                        <button class="comprar">Comprar</button>
+                        <button class="operacion">Operacion</button>
+                    </div>
+                </div>
+                <p class="crypto-name">Bitcoin <span class="crypto-abbr"> BTC </span></p>
+                <div class="price-container">
+                    <p class="crypto-price"> $ <%= btcPrice %> </p>
+                    <p class="crypto-price percentage <% if (btcChange >= 0) { %> green <% } else { %> red <% } %>"> <%= btcChange %>%</p>
+                </div>    
+            </div>
+            
+            <div id="ETH" class="card">
+                <div class="img-button-container">
+                    <div class="images">
+                        <img src="/images/ethereum-eth-logo-CF9DCCA696-seeklogo.com.png">
+                    </div>
+                    <div class="buttons">
+                        <button class="comprar">Comprar</button>
+                        <button class="operacion">Operacion</button>
+                    </div>
+                </div>
+                <p class="crypto-name">Ethereum <span class="crypto-abbr"> ETH </span></p>
+                <div class="price-container">
+                    <p class="crypto-price">$ <%= ethPrice %> </p>
+                    <p class="crypto-price percentage <% if (ethChange >= 0) { %> green <% } else { %> red <% } %>"> <%= ethChange %>%</p>
+                </div>
+            </div>
+            
+            <div id="XLM" class="card">
+                <div class="img-button-container">
+                    <div class="images">
+                        <img src="/images/stellar-xlm-logo.png">
+                    </div>
+                    <div class="buttons">
+                        <button class="comprar">Comprar</button>
+                        <button class="operacion">Operacion</button>
+                    </div>
+                </div>
+                <p class="crypto-name">Stellar <span class="crypto-abbr"> XLM </span></p>
+                <div class="price-container">
+                    <p class="crypto-price">$ <%= xlmPrice %> </p>
+                    <p class="crypto-price percentage <% if (xlmChange >= 0) { %> green <% } else { %> red <% } %>"> <%= xlmChange %>%</p>
+                </div>
+            </div>
+            
+            <div id="SOL" class="card">
+                <div class="img-button-container">
+                    <div class="images">
+                        <img src="/images/solana-sol-logo.png">
+                    </div>
+                    <div class="buttons">
+                        <button class="comprar">Comprar</button>
+                        <button class="operacion">Operacion</button>
+                    </div>
+                </div>
+                <p class="crypto-name">Solana <span class="crypto-abbr"> SQL </span></p>
+                <div class="price-container">
+                    <p class="crypto-price">$ <%= solPrice %> </p>
+                    <p class="crypto-price percentage <% if (solChange >= 0) { %> green <% } else { %> red <% } %>"> <%= solChange %>%</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+</body>
+</html>
+
+
+<%- include("./partials/footer.ejs") %>

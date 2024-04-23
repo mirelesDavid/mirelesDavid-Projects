@@ -1,0 +1,66 @@
+<%- include('./partials/header.ejs') %>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David's Book Ratings</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <h1 class="createTitle">Post Creation</h1>
+    <section class="postCreation">
+        <form action="/post-create" method="POST" onsubmit="return validateForm()">
+            <div class="container-grid">
+
+                    <div class="form group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Rating:</label>
+                        <input type="text" id="rating" name="rating">
+                    </div>
+                    
+                    <div class="alignButton">
+                        <button type="sumbit" class="button">Create Post</button>
+                    </div>
+            </div>
+        </form>
+      </section>
+
+      <script>
+        function validateForm() {
+            console.log('Función validateForm() ejecutada');
+            const username = document.getElementById('username').value.trim();
+            const title = document.getElementById('title').value.trim();
+            const description = document.getElementById('description').value.trim();
+            const rating = document.getElementById('rating').value.trim();
+    
+            if (username === '' || title === '' || description === '' || rating === '') {
+                alert('Por favor, complete todos los campos.');
+                return false; 
+            }
+    
+            return true; 
+        }
+    </script>
+</body>
+
+</html>
+
+

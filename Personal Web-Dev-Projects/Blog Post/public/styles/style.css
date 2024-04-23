@@ -1,0 +1,192 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.nav-link{
+    color: #F3EFE0;
+}
+
+.background{
+    background-color: #222222;
+}
+
+.agencyName{
+    font-family: serif;
+    color: #F3EFE0;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    
+}
+
+.createTitle{
+    font-family: serif;
+    color: #222222;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.communityTitle{
+    font-family: serif;
+    color: #222222;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    margin-top: 50px;
+}
+
+#community-title-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 63.2%; 
+    margin-bottom: 50px;
+}
+
+.separator {
+    display: flex;
+    justify-content: flex-start;
+    border: 0; 
+    border-top: 1px solid black; 
+    width: calc(42%); 
+    margin: 0 auto;
+}
+
+
+.post-title{
+    font-family: serif;
+    color: #222222;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+}
+
+.username{
+    font-family: serif;
+    color: #222222;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+}
+
+.lead{
+    text-align: justify;
+}
+
+.alignButton{
+    display: flex;
+    justify-content: center;
+}
+
+
+.container-grid{
+    height: 400px;
+    width: 1250px;
+    display: grid;
+    grid-template-columns: 200px;
+    grid-template-rows: 100px 100px 100px 100px 50px;
+    gap: 9px;
+}
+
+.container-grid-community{
+    display: grid;
+    grid-row: 20px 50px;
+}
+
+.container-grid-search{
+    height: 400px;
+    width: 1250px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 80px 80px;
+    gap: 9px;
+}
+
+.postCreation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 50vh;
+}
+
+.container-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+.form-group {
+    margin-bottom: 20px;
+  }
+  
+label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #495057;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+input[type="text"]:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+
+#community-posts{
+    margin-bottom: 200px;
+}
+
+#posts-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    margin-bottom: 300px;
+}
+
+.post {
+    display: grid;
+    grid-template-columns: 450px;
+    grid-template-rows: auto auto 1fr auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.post img {
+    width: 420px;
+    height: 420px;
+    border-radius: 8px;
+}
+
+#imageCenter{
+    display: flex;
+    justify-content: center;
+}
+
+

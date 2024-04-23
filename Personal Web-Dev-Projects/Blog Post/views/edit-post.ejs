@@ -1,0 +1,54 @@
+<%- include('./partials/header.ejs') %>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creelon Blog Post</title>
+</head>
+
+<body>
+    <h1 class="createTitle">Post Edition</h1>
+    <section class="postCreation">
+        <form action="/modify" method="POST">
+            
+            <input type="hidden" name="oldUsername" value="<%= post.username %>">
+            <input type="hidden" name="oldTitle" value="<%= post.title %>">
+            
+            <div class="container-grid">
+
+                    <div class="form group">
+                        <label for="username">NewUsername:</label>
+                        <input type="text" id="username" name="username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">NewTitle:</label>
+                        <input type="text" id="title" name="title">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">NewDescription:</label>
+                        <textarea id="description" name="description"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">NewImage URL:</label>
+                        <input type="text" id="image" name="image">
+                    </div>
+                    
+                    <div class="alignButton">
+                        <button type="submit" name="action" value="modify" class="btn btn-dark btn-lg px-4 me-md-2">Modify Post</button>
+                        <button type="submit" name="action" value="delete" class="btn btn-red btn-lg px-4 me-md-2">Delete Post</button>
+                    </div>
+
+            </div>
+        </form>
+      </section>
+</body>
+
+</html>
+
+<%- include('./partials/footer.ejs') %>
