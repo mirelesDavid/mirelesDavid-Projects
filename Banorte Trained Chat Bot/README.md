@@ -1,10 +1,19 @@
-# BanorteAI
-Our team participated in the 2023 HACKATON, the largest hackathon in Latin America, hosted by Tec de Monterrey. We developed a web application for BANORTE designed to assist customers facing financial challenges. Notably, I learned to use HTML, JavaScript, and CSS within a 24-hour timeframe during this project. Initially, we explored implementing machine learning to enhance the AI's ability to provide accurate responses to customer inquiries. However, due to budget constraints, we ultimately integrated ChatGPT-3 to facilitate customer interactions.
+# Banorte-Financial-Assistant
+Banorte Financial Assistant: Born in HackMty challenge, this AI-driven solution provides an interactive chat experience with a trained financial advisor. Utilizing prompts for precise financial guidance.
 
-While our original vision involved using machine learning to optimize the AI's performance, we had to disable this feature due to limited resources. Nevertheless, our web application, powered by ChatGPT-3, aims to provide valuable support to customers seeking financial guidance and solutions.
+## Banorte Financial Advisor
+![image](https://github.com/Alejandrocharles/Banorte-Financial-Assistant--CSS-/assets/110836700/1f5be60a-ba69-4598-bd86-f4f7c9ba1e9d)
 
-(right now the AI of the HTML dosen't work because we finish the money on the appi key)
 
-## Screanshot
 
-![image](https://github.com/EmilioVidal/BanorteAI/assets/149820545/0398967e-7c2a-488b-b59a-24766005981c)
+## About the Project
+
+The Banorte Financial Advisor is an innovative web application created as part of the HackMty challenge for Banorte. This platform serves as a virtual financial advisor, leveraging artificial intelligence to provide users with personalized financial guidance.
+
+## Key Features
+
+- *Interactive AI-Based Advisor:* Engage in real-time conversations with a sophisticated AI-driven financial advisor.
+
+- *Finance Q&A:* Pose questions related to financial matters and receive accurate, data-driven responses.
+
+- *User-Friendly Chat Interface:* The intuitive chat interface makes it easy for users to interact with the AI advisor.
