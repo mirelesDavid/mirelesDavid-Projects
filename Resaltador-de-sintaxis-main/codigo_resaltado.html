@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Resaltado de código Python</title>
+    <style>
+        .palabra_reservada { color: #7F0055; font-weight: bold; }
+        .operador { color: #ff0000; }
+        .literal_numerico { color: #008000; }
+        .literal_de_cadena { color: #BA2121; }
+        .identificador { color: #000000; }
+        .comentario { color: #008000; font-style: italic; }
+        .delimitador { color: #000000; }
+        .funcion { color: #FFD700; font-weight: bold; }
+        .variable { color: #00BFFF; }
+        .numero { color: #008000; }
+        .functioncall { color: #FFD700; }
+        pre { background-color: #F8F8F8; padding: 10px; }
+    </style>
+</head>
+<body>
+<pre>
+ <span class="palabra_reservada">def</span> <span class="funcion">isReal</span><span style="color:#FFD700">(</span><span class="variable">token</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+    <span class="comentario"># Funcion para determinar si un token representa un numero real valido</span>
+     <span class="palabra_reservada">def</span> <span class="funcion">isNumber</span><span style="color:#FFD700">(</span><span class="variable">s</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+        <span class="comentario"># Variables para llevar control de numeros decimales y signos</span>
+        <span class="variable">numSeen</span><span class="delimitador">,</span> <span class="variable">decimalSeen</span> <span class="operador">=</span> <span class="palabra_reservada">False</span><span class="delimitador">,</span> <span class="palabra_reservada">False</span>
+        <span class="variable">signs</span> <span class="operador">=</span> <span class="delimitador">[</span><span class="literal_de_cadena">&quot;+&quot;</span><span class="delimitador">,</span> <span class="literal_de_cadena">&quot;-&quot;</span><span class="delimitador">]</span>
+        <span class="variable">i</span> <span class="operador">=</span> <span class="numero">0</span>
+        <span class="comentario"># Si el primer caracter es un signo se avanza</span>
+        <span class="palabra_reservada">if</span> <span class="variable">s</span><span class="delimitador">[</span><span class="variable">i</span><span class="delimitador">]</span> <span class="palabra_reservada">in</span> <span class="variable">signs</span><span class="delimitador">:</span>
+            <span class="variable">i</span> <span class="operador">*</span><span class="operador">=</span> <span class="numero">1</span>
+        <span class="palabra_reservada">while</span> <span class="variable">i</span> < <span class="funcion">len</span><span style="color:#FFD700">(</span><span class="variable">s</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+            <span class="comentario"># Si es una letra que no sea &apos;e&apos; o &apos;E&apos; el numero no es valido</span>
+            <span class="palabra_reservada">if</span> <span class="variable">s</span><span class="delimitador">[</span><span class="variable">i</span><span class="delimitador">]</span><span class="delimitador">.</span><span class="funcion">isalpha</span><span style="color:#FFD700">(</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+                <span class="palabra_reservada">if</span> <span class="variable">s</span><span class="delimitador">[</span><span class="variable">i</span><span class="delimitador">]</span> <span class="palabra_reservada">not</span> <span class="palabra_reservada">in</span> <span class="delimitador">[</span><span class="literal_de_cadena">&quot;e&quot;</span><span class="delimitador">,</span> <span class="literal_de_cadena">&quot;E&quot;</span><span class="delimitador">]</span><span class="delimitador">:</span>
+                    <span class="palabra_reservada">return</span> <span class="palabra_reservada">False</span>
+                <span class="palabra_reservada">else</span><span class="delimitador">:</span>
+                    <span class="comentario"># Si es &apos;e&apos; o &apos;E&apos; se valida la parte exponencial</span>
+                    <span class="palabra_reservada">return</span> <span class="variable">numSeen</span> <span class="palabra_reservada">and</span> <span class="funcion">validExponentNumber</span><span style="color:#FFD700">(</span><span class="variable">s</span><span class="delimitador">[</span><span class="variable">i</span><span class="operador">+</span><span class="numero">1</span><span class="delimitador">:</span><span class="delimitador">]</span><span style="color:#FFD700">)</span>
+            <span class="comentario"># Si es un signo solo es valido al inicio</span>
+            <span class="palabra_reservada">elif</span> <span class="variable">s</span><span class="delimitador">[</span><span class="variable">i</span><span class="delimitador">]</span> <span class="palabra_reservada">in</span> <span class="variable">signs</span><span class="delimitador">:</span>
+                <span class="palabra_reservada">if</span> <span class="variable">numSeen</span> <span class="palabra_reservada">or</span> <span class="variable">decimalSeen</span><span class="delimitador">:</span>
+                    <span class="palabra_reservada">return</span> <span class="palabra_reservada">False</span>
+            <span class="comentario"># Si es un punto decimal solo se permite uno</span>
+            <span class="palabra_reservada">elif</span> <span class="variable">s</span><span class="delimitador">[</span><span class="variable">i</span><span class="delimitador">]</span> <span class="operador">=</span><span class="operador">=</span> <span class="literal_de_cadena">&quot;.&quot;</span><span class="delimitador">:</span>
+                <span class="palabra_reservada">if</span> <span class="variable">decimalSeen</span><span class="delimitador">:</span>
+                    <span class="palabra_reservada">return</span> <span class="palabra_reservada">False</span>
+                <span class="palabra_reservada">else</span><span class="delimitador">:</span>
+                    <span class="variable">decimalSeen</span> <span class="operador">=</span> <span class="palabra_reservada">True</span>
+            <span class="comentario"># Si es un digito se marca que se ha visto un numero</span>
+            <span class="palabra_reservada">else</span><span class="delimitador">:</span>
+                <span class="variable">numSeen</span> <span class="operador">=</span> <span class="palabra_reservada">True</span>
+            <span class="variable">i</span> <span class="operador">+</span><span class="operador">=</span> <span class="numero">1</span>
+        <span class="comentario"># Si se llego al final sin problemas el numero es valido</span>
+        <span class="palabra_reservada">return</span> <span class="variable">numSeen</span>
+
+    <span class="comentario"># Funcion para validar la parte exponencial de un numero</span>
+     <span class="palabra_reservada">def</span> <span class="funcion">validExponentNumber</span><span style="color:#FFD700">(</span><span class="variable">string</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+        <span class="variable">signs</span> <span class="operador">=</span> <span class="delimitador">[</span><span class="literal_de_cadena">&quot;+&quot;</span><span class="delimitador">,</span> <span class="literal_de_cadena">&quot;-&quot;</span><span class="delimitador">]</span>
+        <span class="palabra_reservada">if</span> <span class="palabra_reservada">not</span> <span class="variable">string</span><span class="delimitador">:</span>
+            <span class="palabra_reservada">return</span> <span class="palabra_reservada">False</span>
+        <span class="variable">i</span> <span class="operador">=</span> <span class="numero">0</span>
+        <span class="variable">numSeen</span> <span class="operador">=</span> <span class="palabra_reservada">False</span>
+        <span class="comentario"># Si el primer caracter es un signo se avanza</span>
+        <span class="palabra_reservada">if</span> <span class="variable">string</span><span class="delimitador">[</span><span class="variable">i</span><span class="delimitador">]</span> <span class="palabra_reservada">in</span> <span class="variable">signs</span><span class="delimitador">:</span>
+            <span class="variable">i</span> <span class="operador">+</span><span class="operador">=</span> <span class="numero">1</span>
+        <span class="palabra_reservada">while</span> <span class="variable">i</span> < <span class="funcion">len</span><span style="color:#FFD700">(</span><span class="variable">string</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+            <span class="comentario"># Todos los caracteres deben ser digitos</span>
+            <span class="palabra_reservada">if</span> <span class="palabra_reservada">not</span> <span class="variable">string</span><span class="delimitador">[</span><span class="variable">i</span><span class="delimitador">]</span><span class="delimitador">.</span><span class="funcion">isdigit</span><span style="color:#FFD700">(</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+                <span class="palabra_reservada">return</span> <span class="palabra_reservada">False</span>
+            <span class="palabra_reservada">else</span><span class="delimitador">:</span>
+                <span class="variable">numSeen</span> <span class="operador">=</span> <span class="palabra_reservada">True</span>
+            <span class="variable">i</span> <span class="operador">+</span><span class="operador">=</span> <span class="numero">1</span>
+        <span class="comentario"># Si se llego al final sin problemas y se vio al menos un digito la parte exponencial es valida</span>
+        <span class="palabra_reservada">return</span> <span class="variable">numSeen</span>
+
+    <span class="comentario"># Se llama a la funcion isNumber para validar el token</span>
+    <span class="palabra_reservada">return</span> <span class="funcion">isNumber</span><span style="color:#FFD700">(</span><span class="variable">token</span><span style="color:#FFD700">)</span>
+
+ <span class="palabra_reservada">def</span> <span class="funcion">isInteger</span><span style="color:#FFD700">(</span><span class="variable">token</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+    <span class="comentario"># Funcion para determinar si un token representa un entero valido</span>
+    <span class="palabra_reservada">try</span><span class="delimitador">:</span>
+        <span class="variable">value</span> <span class="operador">=</span> <span class="funcion">int</span><span style="color:#FFD700">(</span><span class="variable">token</span><span style="color:#FFD700">)</span>
+        <span class="palabra_reservada">return</span> <span class="funcion">isinstance</span><span style="color:#FFD700">(</span><span class="variable">value</span><span class="delimitador">,</span> <span class="variable">int</span><span style="color:#FFD700">)</span>
+    <span class="palabra_reservada">except</span> <span class="variable">ValueError</span><span class="delimitador">:</span>
+        <span class="palabra_reservada">return</span> <span class="palabra_reservada">False</span>
+
+<span class="comentario"># Funcion para imprimir una tabla con los tokens y sus tipos</span>
+ <span class="palabra_reservada">def</span> <span class="funcion">printTokenTable</span><span style="color:#FFD700">(</span><span class="variable">tokens</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+    <span class="variable">header</span> <span class="operador">=</span> <span class="literal_de_cadena">&quot;Token&quot;</span> <span class="operador">+</span> <span class="literal_de_cadena">&quot; &quot;</span> <span class="operador">*</span> <span class="numero">50</span> <span class="operador">+</span> <span class="literal_de_cadena">&quot;Tipo&quot;</span>
+    <span class="variable">separator</span> <span class="operador">=</span> <span class="literal_de_cadena">&quot;-&quot;</span> <span class="operador">*</span> <span class="numero">60</span>
+    <span class="funcion">print</span><span style="color:#FFD700">(</span><span class="variable">header</span><span style="color:#FFD700">)</span>
+    <span class="funcion">print</span><span style="color:#FFD700">(</span><span class="variable">separator</span><span style="color:#FFD700">)</span>
+    <span class="palabra_reservada">for</span> <span class="variable">token</span><span class="delimitador">,</span> <span class="variable">type</span> <span class="palabra_reservada">in</span> <span class="variable">tokens</span><span class="delimitador">:</span>
+        <span class="variable">line</span> <span class="operador">=</span> <span class="variable">token</span><span class="delimitador">.</span><span class="funcion">ljust</span><span style="color:#FFD700">(</span><span class="numero">30</span><span style="color:#FFD700">)</span> <span class="operador">+</span> <span class="variable">type</span><span class="delimitador">.</span><span class="funcion">rjust</span><span style="color:#FFD700">(</span><span class="numero">30</span><span style="color:#FFD700">)</span>
+        <span class="funcion">print</span><span style="color:#FFD700">(</span><span class="variable">line</span><span style="color:#FFD700">)</span>
+
+ <span class="palabra_reservada">def</span> <span class="funcion">lexerAritmetico</span><span style="color:#FFD700">(</span><span class="variable">file</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+    <span class="comentario"># Diccionario con los simbolos y sus tipos</span>
+    <span class="variable">symbolDic</span> <span class="operador">=</span> <span class="delimitador">{</span>
+        <span class="literal_de_cadena">&apos;=&apos;</span><span class="delimitador">:</span> <span class="literal_de_cadena">&apos;Asignacion&apos;</span><span class="delimitador">,</span>
+        <span class="literal_de_cadena">&apos;+&apos;</span><span class="delimitador">:</span> <span class="literal_de_cadena">&apos;Suma&apos;</span><span class="delimitador">,</span>
+        <span class="literal_de_cadena">&apos;-&apos;</span><span class="delimitador">:</span> <span class="literal_de_cadena">&apos;Resta&apos;</span><span class="delimitador">,</span>
+        <span class="literal_de_cadena">&apos;*&apos;</span><span class="delimitador">:</span> <span class="literal_de_cadena">&apos;Multiplicacion&apos;</span><span class="delimitador">,</span>
+        <span class="literal_de_cadena">&apos;/&apos;</span><span class="delimitador">:</span> <span class="literal_de_cadena">&apos;Division&apos;</span><span class="delimitador">,</span>
+        <span class="literal_de_cadena">&apos;^&apos;</span><span class="delimitador">:</span> <span class="literal_de_cadena">&apos;Potencia&apos;</span><span class="delimitador">,</span>
+        <span class="literal_de_cadena">&apos;(&apos;</span><span class="delimitador">:</span> <span class="literal_de_cadena">&apos;Parentesis que abre&apos;</span><span class="delimitador">,</span>
+        <span class="literal_de_cadena">&apos;)&apos;</span><span class="delimitador">:</span> <span class="literal_de_cadena">&apos;Parentesis que cierra&apos;</span>
+    <span class="delimitador">}</span>
+    <span class="variable">operators</span> <span class="operador">=</span> <span class="delimitador">[</span><span class="literal_de_cadena">&quot;+&quot;</span><span class="delimitador">,</span> <span class="literal_de_cadena">&quot;-&quot;</span><span class="delimitador">,</span> <span class="literal_de_cadena">&quot;*&quot;</span><span class="delimitador">,</span> <span class="literal_de_cadena">&quot;/&quot;</span><span class="delimitador">,</span> <span class="literal_de_cadena">&quot;(&quot;</span><span class="delimitador">,</span> <span class="literal_de_cadena">&quot;)&quot;</span><span class="delimitador">,</span> <span class="literal_de_cadena">&quot;^&quot;</span><span class="delimitador">,</span> <span class="literal_de_cadena">&quot;=&quot;</span><span class="delimitador">]</span>
+
+    <span class="comentario"># Se lee el contenido del archivo</span>
+    <span class="palabra_reservada">with</span> <span class="funcion">open</span><span style="color:#FFD700">(</span><span class="variable">file</span><span class="delimitador">,</span> <span class="literal_de_cadena">&apos;r&apos;</span><span style="color:#FFD700">)</span> <span class="palabra_reservada">as</span> <span class="variable">f</span><span class="delimitador">:</span>
+        <span class="variable">content</span> <span class="operador">=</span> <span class="variable">f</span><span class="delimitador">.</span><span class="funcion">read</span><span style="color:#FFD700">(</span><span style="color:#FFD700">)</span>
+    <span class="variable">tokens</span> <span class="operador">=</span> <span class="delimitador">[</span><span class="delimitador">]</span>
+
+    <span class="comentario"># Se itera sobre cada linea del archivo</span>
+    <span class="palabra_reservada">for</span> <span class="variable">line</span> <span class="palabra_reservada">in</span> <span class="variable">content</span><span class="delimitador">.</span><span class="funcion">splitlines</span><span style="color:#FFD700">(</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+        <span class="variable">line</span> <span class="operador">=</span> <span class="variable">line</span><span class="delimitador">.</span><span class="funcion">strip</span><span style="color:#FFD700">(</span><span style="color:#FFD700">)</span>
+        <span class="variable">i</span> <span class="operador">=</span> <span class="numero">0</span>
+        <span class="palabra_reservada">while</span> <span class="variable">i</span> < <span class="funcion">len</span><span style="color:#FFD700">(</span><span class="variable">line</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+            <span class="comentario"># Si el caracter es un digito o punto se intenta formar un numero</span>
+            <span class="palabra_reservada">if</span> <span class="variable">line</span><span class="delimitador">[</span><span class="variable">i</span><span class="delimitador">]</span><span class="delimitador">.</span><span class="funcion">isdigit</span><span style="color:#FFD700">(</span><span style="color:#FFD700">)</span> <span class="palabra_reservada">or</span> <span class="variable">line</span><span class="delimitador">[</span><span class="variable">i</span><span class="delimitador">]</span> <span class="operador">=</span><span class="operador">=</span> <span class="literal_de_cadena">&apos;.&apos;</span><span class="delimitador">:</span>
+                <span class="variable">negativeSign</span> <span class="operador">=</span> <span class="palabra_reservada">False</span>
+                <span class="variable">token</span> <span class="operador">=</span> <span class="variable">line</span><span class="delimitador">[</span><span class="variable">i</span><span class="delimitador">]</span>
+                <span class="variable">j</span> <span class="operador">=</span> <span class="variable">i</span> <span class="operador">+</span> <span class="numero">1</span>
+                <span class="palabra_reservada">while</span> <span class="variable">j</span> < <span class="funcion">len</span><span style="color:#FFD700">(</span><span class="variable">line</span><span style="color:#FFD700">)</span> <span class="palabra_reservada">and</span> <span style="color:#FFD700">(</span><span class="variable">line</span><span class="delimitador">[</span><span class="variable">j</span><span class="delimitador">]</span><span class="delimitador">.</span><span class="funcion">isdigit</span><span style="color:#af11ed">(</span><span style="color:#af11ed">)</span> <span class="palabra_reservada">or</span> <span class="variable">line</span><span class="delimitador">[</span><span class="variable">j</span><span class="delimitador">]</span> <span class="operador">=</span><span class="operador">=</span> <span class="literal_de_cadena">&apos;.&apos;</span> <span class="palabra_reservada">or</span> <span class="variable">line</span><span class="delimitador">[</span><span class="variable">j</span><span class="delimitador">]</span><span class="delimitador">.</span><span class="funcion">upper</span><span style="color:#af11ed">(</span><span style="color:#af11ed">)</span> <span class="operador">=</span><span class="operador">=</span> <span class="literal_de_cadena">&apos;E&apos;</span> <span class="palabra_reservada">or</span> <span style="color:#af11ed">(</span><span class="variable">line</span><span class="delimitador">[</span><span class="variable">j</span><span class="delimitador">]</span> <span class="palabra_reservada">in</span> <span class="delimitador">[</span><span class="literal_de_cadena">&apos;+&apos;</span><span class="delimitador">,</span> <span class="literal_de_cadena">&apos;-&apos;</span><span class="delimitador">]</span> <span class="palabra_reservada">and</span> <span class="variable">line</span><span class="delimitador">[</span><span class="variable">j</span><span class="operador">-</span><span class="numero">1</span><span class="delimitador">]</span><span class="delimitador">.</span><span class="funcion">upper</span><span style="color:#ed5311">(</span><span style="color:#ed5311">)</span> <span class="operador">=</span><span class="operador">=</span> <span class="literal_de_cadena">&apos;E&apos;</span><span style="color:#af11ed">)</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+                    <span class="variable">token</span> <span class="operador">+</span><span class="operador">=</span> <span class="variable">line</span><span class="delimitador">[</span><span class="variable">j</span><span class="delimitador">]</span>
+                    <span class="variable">j</span> <span class="operador">+</span><span class="operador">=</span> <span class="numero">1</span>
+                <span class="comentario"># Se determina si el token es un entero real o invalido</span>
+                <span class="palabra_reservada">if</span> <span class="funcion">isInteger</span><span style="color:#FFD700">(</span><span class="variable">token</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+                    <span class="variable">tokens</span><span class="delimitador">.</span><span class="funcion">append</span><span style="color:#FFD700">(</span><span style="color:#af11ed">(</span><span class="variable">token</span><span class="delimitador">,</span> <span class="literal_de_cadena">&apos;Entero&apos;</span><span style="color:#af11ed">)</span><span style="color:#FFD700">)</span>
+                <span class="palabra_reservada">elif</span> <span class="funcion">isReal</span><span style="color:#FFD700">(</span><span class="variable">token</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+                    <span class="variable">tokens</span><span class="delimitador">.</span><span class="funcion">append</span><span style="color:#FFD700">(</span><span style="color:#af11ed">(</span><span class="variable">token</span><span class="delimitador">,</span> <span class="literal_de_cadena">&apos;Real&apos;</span><span style="color:#af11ed">)</span><span style="color:#FFD700">)</span>
+                <span class="palabra_reservada">else</span><span class="delimitador">:</span>
+                    <span class="variable">tokens</span><span class="delimitador">.</span><span class="funcion">append</span><span style="color:#FFD700">(</span><span style="color:#af11ed">(</span><span class="variable">token</span><span class="delimitador">,</span> <span class="literal_de_cadena">&apos;Error&apos;</span><span style="color:#af11ed">)</span><span style="color:#FFD700">)</span>
+                <span class="variable">i</span> <span class="operador">=</span> <span class="variable">j</span>
+            <span class="comentario"># Si el caracter es una letra se intenta formar una variable</span>
+            <span class="palabra_reservada">elif</span> <span class="variable">line</span><span class="delimitador">[</span><span class="variable">i</span><span class="delimitador">]</span><span class="delimitador">.</span><span class="funcion">isalpha</span><span style="color:#FFD700">(</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+                <span class="variable">token</span> <span class="operador">=</span> <span class="variable">line</span><span class="delimitador">[</span><span class="variable">i</span><span class="delimitador">]</span>
+                <span class="variable">j</span> <span class="operador">=</span> <span class="variable">i</span> <span class="operador">+</span> <span class="numero">1</span>
+                <span class="palabra_reservada">while</span> <span class="variable">j</span> < <span class="funcion">len</span><span style="color:#FFD700">(</span><span class="variable">line</span><span style="color:#FFD700">)</span> <span class="palabra_reservada">and</span> <span style="color:#FFD700">(</span><span class="variable">line</span><span class="delimitador">[</span><span class="variable">j</span><span class="delimitador">]</span><span class="delimitador">.</span><span class="funcion">isalnum</span><span style="color:#af11ed">(</span><span style="color:#af11ed">)</span> <span class="palabra_reservada">or</span> <span class="variable">line</span><span class="delimitador">[</span><span class="variable">j</span><span class="delimitador">]</span> <span class="operador">=</span><span class="operador">=</span> <span class="literal_de_cadena">&apos;_&apos;</span> <span class="palabra_reservada">or</span> <span class="variable">line</span><span class="delimitador">[</span><span class="variable">j</span><span class="delimitador">]</span><span class="delimitador">.</span><span class="funcion">isdigit</span><span style="color:#af11ed">(</span><span style="color:#af11ed">)</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+                    <span class="variable">token</span> <span class="operador">+</span><span class="operador">=</span> <span class="variable">line</span><span class="delimitador">[</span><span class="variable">j</span><span class="delimitador">]</span>
+                    <span class="variable">j</span> <span class="operador">+</span><span class="operador">=</span> <span class="numero">1</span>
+                <span class="variable">tokens</span><span class="delimitador">.</span><span class="funcion">append</span><span style="color:#FFD700">(</span><span style="color:#af11ed">(</span><span class="variable">token</span><span class="delimitador">,</span> <span class="literal_de_cadena">&apos;Variable&apos;</span><span style="color:#af11ed">)</span><span style="color:#FFD700">)</span>
+                <span class="variable">i</span> <span class="operador">=</span> <span class="variable">j</span>
+            <span class="comentario"># Si es un comentario se agrega el token y se sale del ciclo</span>
+            <span class="palabra_reservada">elif</span> <span class="variable">line</span><span class="delimitador">[</span><span class="variable">i</span><span class="delimitador">:</span><span class="delimitador">]</span><span class="delimitador">.</span><span class="funcion">startswith</span><span style="color:#FFD700">(</span><span class="literal_de_cadena">&apos;//&apos;</span><span style="color:#FFD700">)</span><span class="delimitador">:</span>
+                <span class="variable">tokens</span><span class="delimitador">.</span><span class="funcion">append</span><span style="color:#FFD700">(</span><span style="color:#af11ed">(</span><span class="variable">line</span><span class="delimitador">[</span><span class="variable">i</span><span class="delimitador">:</span><span class="delimitador">]</span><span class="delimitador">,</span> <span class="literal_de_cadena">&apos;Comentario&apos;</span><span style="color:#af11ed">)</span><span style="color:#FFD700">)</span>
+                <span class="palabra_reservada">break</span>
+            <span class="comentario"># Si es un operador se agrega el token</span>
+            <span class="palabra_reservada">elif</span> <span class="variable">line</span><span class="delimitador">[</span><span class="variable">i</span><span class="delimitador">]</span> <span class="palabra_reservada">in</span> <span class="variable">operators</span><span class="delimitador">:</span>
+                <span class="variable">token</span> <span class="operador">=</span> <span class="variable">line</span><span class="delimitador">[</span><span class="variable">i</span><span class="delimitador">]</span>
+                <span class="variable">tokens</span><span class="delimitador">.</span><span class="funcion">append</span><span style="color:#FFD700">(</span><span style="color:#af11ed">(</span><span class="variable">token</span><span class="delimitador">,</span> <span class="variable">symbolDic</span><span class="delimitador">[</span><span class="variable">token</span><span class="delimitador">]</span><span style="color:#af11ed">)</span><span style="color:#FFD700">)</span>
+                <span class="variable">i</span> <span class="operador">+</span><span class="operador">=</span> <span class="numero">1</span>
+            <span class="comentario"># Si no es ninguno de los casos anteriores se avanza al siguiente caracter</span>
+            <span class="palabra_reservada">else</span><span class="delimitador">:</span>
+                <span class="variable">i</span> <span class="operador">+</span><span class="operador">=</span> <span class="numero">1</span>
+
+    <span class="comentario"># Se imprime la tabla de tokens</span>
+    <span class="funcion">printTokenTable</span><span style="color:#FFD700">(</span><span class="variable">tokens</span><span style="color:#FFD700">)</span>
+
+<span class="comentario"># Se llama a la funcion principal con el nombre del archivo</span>
+<span class="funcion">lexerAritmetico</span><span style="color:#FFD700">(</span><span class="literal_de_cadena">&quot;expresiones.txt&quot;</span><span style="color:#FFD700">)</span>
+</pre></body>
+</html>
