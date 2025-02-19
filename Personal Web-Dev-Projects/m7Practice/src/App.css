@@ -1,0 +1,22 @@
+.centerButtons {
+display: flex;
+justify-content: center; 
+align-items: center;     
+gap: 10px;               
+height: 40vh;           
+}
+
+p {
+display: flex;
+justify-content: center; 
+align-items: center;     
+gap: 10px;                        
+}
+
+.inputContainer{
+display: flex;
+justify-content: center; 
+align-items: center;     
+gap: 10px;               
+height: 10vh; 
+}

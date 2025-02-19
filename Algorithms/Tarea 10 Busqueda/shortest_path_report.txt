@@ -1,0 +1,13 @@
+Shortest Path Comparison: A* vs Dijkstra
+========================================
+
+A* Algorithm Results:
+Path: [3, 7]
+Cost: 36.95
+
+Dijkstra Algorithm Results:
+Path: [3, 7]
+Cost: 36.95
+
+========================================
+Report generated automatically by the program.
