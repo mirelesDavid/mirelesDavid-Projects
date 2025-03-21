@@ -1,0 +1,52 @@
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.register-content {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.register-paper {
+  padding: 32px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  background-color: white;
+}
+
+.register-title {
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.register-form {
+  margin-top: 8px;
+}
+
+.register-input {
+  margin-bottom: 16px;
+}
+
+.register-input-field {
+  background-color: transparent;
+}
+
+.register-button {
+  margin-top: 16px;
+  padding: 10px;
+  background-color: #1976d2;
+}
+
+.register-button:hover {
+  background-color: #1565c0 !important;
+}
+
