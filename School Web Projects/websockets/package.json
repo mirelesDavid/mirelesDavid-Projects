@@ -1,0 +1,13 @@
+{
+  "name": "websockets-chat",
+  "version": "1.0.0",
+  "description": "WebSockets Live Chat Application",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"cd back && npm run dev\" \"cd front && npm run dev\"",
+    "install-deps": "npm install && cd back && npm install && cd ../front && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+} 
